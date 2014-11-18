@@ -24,7 +24,7 @@ class Activity(models.Model):
 
     organizer = models.CharField(max_length=255,
                             default='',
-                            verbose_name=_('Name'))
+                            verbose_name=_('Organizer'))
 
     location = models.CharField(max_length=255,
                                 default='',
