@@ -55,4 +55,4 @@ class OwnCloudStorage(Storage):
 
     def url(self, name):
         data = self.oc.share_file_with_link(name)
-        return '%s%s' % (data.link, '&download')
+        return '{}{}'.format(data.link, '&download')
