@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+from cuaderno.storage import OwnCloudStorage
 
 # Create your models here.
 
@@ -7,16 +8,22 @@ class ActivityURL(models.Model):
     url = models.URLField()
 
 
-class Activity(models.Model):
-    KIND_CHOICES = (
-        ('charla', _('Conference')),
-        ('taller', _('Workshop')),
-        ('stand', _('Stand')),
-    )
+class ActivityKind(models.Model):
+    name = models.CharField(max_length=255,
+                            default='',
+                            verbose_name=_('Name'))
 
-    kind = models.CharField(max_length=10,
-                            choices=KIND_CHOICES,
-                            verbose_name=_('Kind'))
+    def __unicode__(self):
+        return u'%s' % self.name
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _('Kind of activity')
+        verbose_name_plural = _('Kinds of activity')
+
+
+class Activity(models.Model):
+    kind = models.ForeignKey('ActivityKind', verbose_name=_('Kind'))
 
     name = models.CharField(max_length=255,
                             default='',
@@ -31,13 +38,13 @@ class Activity(models.Model):
                                 verbose_name=_('Location'),
                                 help_text=_('Province, city, venue.'))
 
-    day = models.DateField()
+    day = models.DateField(verbose_name=_('Day'))
 
-    description = models.TextField(
+    description = models.TextField(verbose_name=_('Description'),
                                    help_text=_('cantidad de asistentes, en que consistio, duracion, etc.'))
 
-    authorities = models.TextField(
-                                   _('Conectar Igualdad, ANSES, etc'))
+    authorities = models.TextField(verbose_name=_('Authorities'),
+                                   help_text=_('Conectar Igualdad, ANSES, etc'))
 
     staff = models.ManyToManyField('team.Member')
 
@@ -45,3 +52,7 @@ class Activity(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _('activity')
+        verbose_name_plural = _('activities')
