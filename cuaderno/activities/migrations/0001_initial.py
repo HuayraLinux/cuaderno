@@ -7,7 +7,8 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('team', '0002_auto_20141113_1554'),
+        ('team', '0001_initial'),
+        ('attachments', '0001_initial'),
     ]
 
     operations = [
@@ -18,13 +19,16 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(default=b'', max_length=255, verbose_name='Name')),
                 ('organizer', models.CharField(default=b'', max_length=255, verbose_name='Organizer')),
                 ('location', models.CharField(default=b'', help_text='Province, city, venue.', max_length=255, verbose_name='Location')),
-                ('day', models.DateField()),
-                ('description', models.TextField(help_text='cantidad de asistentes, en que consistio, duracion, etc.')),
-                ('authorities', models.TextField(verbose_name='Conectar Igualdad, ANSES, etc')),
+                ('day', models.DateField(verbose_name='Day')),
+                ('description', models.TextField(help_text='cantidad de asistentes, en que consistio, duracion, etc.', verbose_name='Description')),
+                ('authorities', models.TextField(help_text='Conectar Igualdad, ANSES, etc', verbose_name='Authorities')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('attachments', models.ManyToManyField(to='attachments.Attachment')),
             ],
             options={
+                'verbose_name': 'activity',
+                'verbose_name_plural': 'activities',
             },
             bases=(models.Model,),
         ),
@@ -35,6 +39,9 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(default=b'', max_length=255, verbose_name='Name')),
             ],
             options={
+                'ordering': ['name'],
+                'verbose_name': 'Kind of activity',
+                'verbose_name_plural': 'Kinds of activity',
             },
             bases=(models.Model,),
         ),
@@ -51,7 +58,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='activity',
             name='kind',
-            field=models.ForeignKey(to='activities.ActivityKind'),
+            field=models.ForeignKey(verbose_name='Kind', to='activities.ActivityKind'),
             preserve_default=True,
         ),
         migrations.AddField(

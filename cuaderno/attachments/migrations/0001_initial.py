@@ -11,13 +11,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Member',
+            name='Attachment',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('last_name', models.CharField(max_length=64, verbose_name='Nombre')),
-                ('first_name', models.CharField(max_length=64, verbose_name='Apellido')),
+                ('data', models.FileField(upload_to=b'')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
             ],
             options={
             },

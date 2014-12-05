@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     # own apps
     'team',
     'activities',
+    'attachments',
 )
 
 MIDDLEWARE_CLASSES = (
