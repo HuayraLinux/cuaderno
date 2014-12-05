@@ -55,5 +55,5 @@ class Activity(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = _('activity')
-        verbose_name_plural = _('activities')
+        verbose_name = _('Activity')
+        verbose_name_plural = _('Activities')
