@@ -33,8 +33,8 @@ class ActivityKind(models.Model):
 
 class ActivityAttachment(models.Model):
     activity = models.ForeignKey('Activity')
-    #data = models.FileField(storage=oc, upload_to='/huayra-cuaderno/actividades/')
-    data = models.FileField(upload_to='/huayra-cuaderno/actividades/')
+    data = models.FileField(storage=oc, upload_to='/huayra-cuaderno/actividades/')
+    #data = models.FileField(upload_to='/huayra-cuaderno/actividades/')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -59,7 +59,8 @@ class Activity(models.Model):
                                 verbose_name=_('Location'),
                                 help_text=_('Province, city, venue.'))
 
-    day = models.DateField(verbose_name=_('Day'))
+    from_date = models.DateField(verbose_name=_('From date'))
+    until_date = models.DateField(verbose_name=_('Until date'), blank=True, null=True)
 
     description = models.TextField(verbose_name=_('Description'),
                                    help_text=_('cantidad de asistentes, en que consistio, duracion, etc.'))
@@ -71,6 +72,9 @@ class Activity(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return u'%s (%s)' % (self.name, self.organizer)
 
     class Meta:
         verbose_name = _('Activity')

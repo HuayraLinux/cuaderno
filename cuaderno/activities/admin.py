@@ -6,22 +6,27 @@ from activities.models import Activity, ActivityURL, ActivityKind, ActivityAttac
 class ActivityURLAdmin(admin.ModelAdmin):
     pass
 
+
 class ActivityKindAdmin(admin.ModelAdmin):
     pass
+
 
 class ActivityAttachmentAdmin(admin.ModelAdmin):
     pass
 
+
 class ActivityURLInline(admin.TabularInline):
     model = ActivityURL
+
 
 class ActivityAttachmentInline(admin.StackedInline):
     model = ActivityAttachment
 
 
-
 class ActivityAdmin(admin.ModelAdmin):
     inlines = [ActivityURLInline, ActivityAttachmentInline]
+    list_display = ['name', 'organizer', 'location', 'kind']
+    list_filter = ['kind', 'organizer', 'from_date']
 
 admin.site.register(Activity, ActivityAdmin)
 admin.site.register(ActivityURL, ActivityURLAdmin)
