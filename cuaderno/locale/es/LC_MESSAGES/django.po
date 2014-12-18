@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 18:13-0300\n"
+"POT-Creation-Date: 2014-12-18 11:53-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,66 +18,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: activities/models.py:13 activities/models.py:29
+#: activities/models.py:15
+msgid "URL"
+msgstr "URL"
+
+#: activities/models.py:16
+msgid "URLs"
+msgstr "URLs"
+
+#: activities/models.py:22 activities/models.py:50
 msgid "Name"
 msgstr "Nombre"
 
-#: activities/models.py:20
+#: activities/models.py:29
 msgid "Kind of activity"
 msgstr "Tipo de actividad"
 
-#: activities/models.py:21
+#: activities/models.py:30
 msgid "Kinds of activity"
 msgstr "Tipos de actividad"
 
-#: activities/models.py:25
+#: activities/models.py:40
+msgid "Attachment"
+msgstr "Adjunto"
+
+#: activities/models.py:41
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#: activities/models.py:46
 msgid "Kind"
 msgstr "Tipo"
 
-#: activities/models.py:33
+#: activities/models.py:54
 msgid "Organizer"
 msgstr "Organizador"
 
-#: activities/models.py:37
+#: activities/models.py:58
 msgid "Location"
 msgstr "Ubicación"
 
-#: activities/models.py:38
+#: activities/models.py:59
 msgid "Province, city, venue."
 msgstr "Provincia, ciudad, calle."
 
-#: activities/models.py:40
+#: activities/models.py:61
 msgid "Day"
 msgstr "Día"
 
-#: activities/models.py:42
+#: activities/models.py:63
 msgid "Description"
 msgstr "Descripción"
 
-#: activities/models.py:43
+#: activities/models.py:64
 msgid "cantidad de asistentes, en que consistio, duracion, etc."
 msgstr ""
 
-#: activities/models.py:45
+#: activities/models.py:66
 msgid "Authorities"
 msgstr "Autoridades"
 
-#: activities/models.py:46
+#: activities/models.py:67
 msgid "Conectar Igualdad, ANSES, etc"
 msgstr ""
 
-#: activities/models.py:58
+#: activities/models.py:75
 msgid "Activity"
 msgstr "Actividad"
 
-#: activities/models.py:59
+#: activities/models.py:76
 msgid "Activities"
 msgstr "Actividades"
 
 #: team/models.py:8
 msgid "Last name"
-msgstr "Nombre"
+msgstr "Apellido"
 
 #: team/models.py:10
 msgid "First name"
-msgstr "Apellido"
+msgstr "Nombre"
+
+#: team/models.py:19
+msgid "Member"
+msgstr "Miembro"
+
+#: team/models.py:20
+msgid "Members"
+msgstr "Miembros"

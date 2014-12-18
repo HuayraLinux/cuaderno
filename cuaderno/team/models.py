@@ -14,3 +14,7 @@ class Member(models.Model):
 
     def __unicode__(self):
         return u'%s, %s' % (self.last_name, self.first_name)
+
+    class Meta:
+        verbose_name = _('Member')
+        verbose_name_plural = _('Members')
