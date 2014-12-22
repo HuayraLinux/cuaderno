@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<style>
+.padding {
+  margin: 3em;
+}
+</style>
+
+
+
+
+<div class='padding'>
+
+
+
+  <div class="jumbotron">
+    <p>Bienvenido a <em>Cuaderno</em>, un repositorio
+    de experiencias, eventos, actividades y talleres realizados
+    con <a href='http://huayra.conectarigualdad.gob.ar'>Huayra GNU/Linux</a>.</p>
+  </div>
+
+
+
+
+
+    <table class="table table-bordered table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for activity in activities %}
+        <tr>
+          <td><a href='/{{activity.id}}'>{{ activity }}</a></td>
+          <td>{{activity.kind}}</td>
+          <td><span class='fecha'>{{activity.from_date}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

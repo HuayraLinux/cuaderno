@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.padding {
+  margin: 3em;
+}
+</style>
+
+
+<div class='padding'>
+<h1>{{activity.name}}</h1>
+
+{{activity.from_date}}
+
+<p>
+  {{activity.description}}
+</p>
+</div>
+{% endblock %}
