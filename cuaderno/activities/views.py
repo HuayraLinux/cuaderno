@@ -17,4 +17,8 @@ def show(request, id):
     except Activity.DoesNotExist:
         raise Http404
 
-    return render_to_response('activities/show.html', {'activity': activity})
+    values = {
+                'activity': activity,
+              'members': [str(m) for m in activity.staff.all()],
+             }
+    return render_to_response('activities/show.html', values)

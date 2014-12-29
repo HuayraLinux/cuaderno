@@ -1,20 +1,105 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <style>
 .padding {
   margin: 3em;
+}
+
+.detalle {
+  font-size: 17.5px;
+  background-color: #eee;
+  padding: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+}
+
+ul {
+  display: inline-block;
+}
+
+.detalle div {
+  margin-bottom: 20px;
+}
+
+.detalle label {
+  width: 300px;
+  float: left;
+  clear: both;
+}
+
+.adjunto {
+  float: left;
+  margin-right: 20px;
+}
+
+.adjuntos {
+}
+
+.break {
+  clear: both;
 }
 </style>
 
 
 <div class='padding'>
-<h1>{{activity.name}}</h1>
+  
+  <p class='lead'>
+    <a href='/'>← Regresar</a>
+  </p>
 
-{{activity.from_date}}
+  <h1>{{activity.name}}</h1>
 
-<p>
-  {{activity.description}}
-</p>
+  <p class='lead'>
+    {{activity.description}}
+  </p>
+
+  <div class='detalle'>
+
+    <div><label>Fecha de realización:</label> <span>{{activity.from_date}}</span></div>
+    <div><label>Tipo:</label> <span>{{activity.kind.name}}</span></div>
+    <div><label>Ubicación:</label> <span>{{activity.location}}</span></div>
+    <div><label>Organizador:</label> <span>{{activity.organizer}}</span></div>
+    <div><label>Autoridades:</label> <span>{{activity.authorities}}</span></div>
+
+    <div>
+      <label>Asistentes:</label>
+      <ul>
+        {% for m in activity.staff.all %}
+          <li>{{m}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class='adjuntos'>
+      <div> <label>Autoridades:</label></div>
+      <div class='break'></div>
+
+      {% for m in activity.activityattachment_set.all %}
+      <div class='adjunto'>
+        {% if m.es_imagen %}
+        <img src='{{m.data.url}}'>
+        {% else %}
+          {% if m.es_video %}
+          <video controls>
+            <source src="{{m.data.url}}" type="video/mp4">
+          </video>
+          {% endif %}
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <div class='break'></div>
+    </div>
+
+
+  </div>
+
+  <p class='lead'>
+    <a href='/'>← Regresar</a>
+  </p>
 </div>
+
 {% endblock %}
