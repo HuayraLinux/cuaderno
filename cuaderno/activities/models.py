@@ -75,7 +75,7 @@ class Activity(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    owner = models.ForeignKey(User, editable=False)
+    owner = models.ForeignKey(User, editable=False, verbose_name=_('Owner'))
 
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.organizer)
