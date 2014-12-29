@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 14:20-0300\n"
+"POT-Creation-Date: 2014-12-29 14:10-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: activities/models.py:16
+#: activities/models.py:18
 msgid "URL"
 msgstr "URL"
 
-#: activities/models.py:17
+#: activities/models.py:19
 msgid "URLs"
 msgstr "URLs"
 
-#: activities/models.py:23 activities/models.py:51
+#: activities/models.py:25 activities/models.py:53
 msgid "Name"
 msgstr "Nombre"
 
-#: activities/models.py:30
+#: activities/models.py:32
 msgid "Kind of activity"
 msgstr "Tipo de actividad"
 
-#: activities/models.py:31
+#: activities/models.py:33
 msgid "Kinds of activity"
 msgstr "Tipos de actividad"
 
-#: activities/models.py:41
+#: activities/models.py:43
 msgid "Attachment"
 msgstr "Adjunto"
 
-#: activities/models.py:42
+#: activities/models.py:44
 msgid "Attachments"
 msgstr "Adjuntos"
 
-#: activities/models.py:47
+#: activities/models.py:49
 msgid "Kind"
 msgstr "Tipo"
 
-#: activities/models.py:55
+#: activities/models.py:57
 msgid "Organizer"
 msgstr "Organizador"
 
-#: activities/models.py:59
+#: activities/models.py:61
 msgid "Location"
 msgstr "Ubicación"
 
-#: activities/models.py:60
+#: activities/models.py:62
 msgid "Province, city, venue."
 msgstr "Provincia, ciudad, calle."
 
-#: activities/models.py:62
+#: activities/models.py:64
 msgid "From date"
 msgstr "Desde"
 
-#: activities/models.py:63
+#: activities/models.py:65
 msgid "Until date"
 msgstr "Hasta"
 
-#: activities/models.py:65
+#: activities/models.py:67
 msgid "Description"
 msgstr "Descripción"
 
-#: activities/models.py:66
+#: activities/models.py:68
 msgid "cantidad de asistentes, en que consistio, duracion, etc."
 msgstr ""
 
-#: activities/models.py:68
+#: activities/models.py:70
 msgid "Authorities"
 msgstr "Autoridades"
 
-#: activities/models.py:69
+#: activities/models.py:71
 msgid "Conectar Igualdad, ANSES, etc"
 msgstr ""
 
-#: activities/models.py:80
+#: activities/models.py:78
+msgid "Owner"
+msgstr "Dueño"
+
+#: activities/models.py:84
 msgid "Activity"
 msgstr "Actividad"
 
-#: activities/models.py:81
+#: activities/models.py:85
 msgid "Activities"
 msgstr "Actividades"
 
