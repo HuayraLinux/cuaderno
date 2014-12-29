@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 
-
 {% block content %}
 <style>
 .padding {
@@ -40,6 +39,12 @@
           <td><a href='/{{activity.id}}'>{{ activity }}</a></td>
           <td>{{activity.kind}}</td>
           <td><span class='fecha'>{{activity.from_date}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan=3>No hay experiencias que coincidan con la búsqueda,
+            <a href='/'>¿querés limpiar los filtros de búsqueda?</a>.
+          </td>
         </tr>
         {% endfor %}
       </tbody>
