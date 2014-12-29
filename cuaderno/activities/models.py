@@ -1,3 +1,5 @@
+
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -72,6 +74,8 @@ class Activity(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    owner = models.ForeignKey(User, editable=False)
 
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.organizer)
