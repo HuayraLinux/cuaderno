@@ -39,6 +39,9 @@ class ActivityAttachment(models.Model):
     #data = models.FileField(upload_to='/huayra-cuaderno/actividades/')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    is_published = models.BooleanField(default=False)
+
+
     def es_imagen(self):
         return self.data.name.lower().split('.')[-1] in ['gif', 'png', 'jpg', 'jpeg']
 
@@ -80,6 +83,7 @@ class Activity(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=False)
 
     owner = models.ForeignKey(User, editable=False, verbose_name=_('Owner'))
 
