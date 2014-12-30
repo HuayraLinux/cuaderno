@@ -45,7 +45,7 @@ ul {
 
 
 <div class='padding'>
-  
+
   <p class='lead'>
     <a href='/'>← Regresar</a>
   </p>
@@ -77,7 +77,7 @@ ul {
       <div> <label>Autoridades:</label></div>
       <div class='break'></div>
 
-      {% for m in activity.activityattachment_set.all %}
+      {% for m in attachments %}
       <div class='adjunto'>
         {% if m.es_imagen %}
         <img src='{{m.data.url}}'>

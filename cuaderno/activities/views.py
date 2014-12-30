@@ -4,7 +4,7 @@ from activities.models import Activity
 
 def index(request):
     q = request.GET.get('q', '')
-    activities = Activity.objects.all()
+    activities = Activity.objects.filter(is_published=True)
 
     if q:
         activities = activities.filter(name__icontains=q)
@@ -18,7 +18,8 @@ def show(request, id):
         raise Http404
 
     values = {
-                'activity': activity,
-              'members': [str(m) for m in activity.staff.all()],
-             }
+        'activity': activity,
+        'members': [str(m) for m in activity.staff.all()],
+        'attachments': activity.activityattachment_set.filter(is_published=True),
+    }
     return render_to_response('activities/show.html', values)
